@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advent of Code 2024 - Interactive Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2>Advent of Code 2024 - Interactive Solutions</h2>
+    <p>Solve the puzzles for the 2024 Advent of Code, and provide your own custom inputs!</p>
+
+    <!-- Calendar Grid -->
+    <div class="calendar">
+        <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+        
+        <!-- Empty cells for days before December 1st -->
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+        
+        <!-- Calendar days with links from Day 1 to Day 25 -->
+        {% for day in range(1, 26) %}
+            <a href="{{ url_for('puzzle_day', day=day) }}" class="button">{{ day }}</a>
+        {% endfor %}
+
+    </div>
+
+    <footer>
+        <p>
+            <a href="https://adventofcode.com/2024">Advent of Code 2024</a> |  
+            <a href="https://mjc239.github.io/about">Michael Cole</a> | 
+            <a href="https://github.com/mjc239">View on GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>

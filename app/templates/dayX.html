@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day {{ day }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Day {{ day }}</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <label for="user_input">Enter Puzzle Input:</label>
+        
+        <!-- Text area for user input -->
+        {{ form.user_input(rows=5, cols=40) }}
+
+        <!-- Display errors for user_input -->
+        {% if form.user_input.errors %} 
+            <ul class="error-messages">
+                {% for error in form.user_input.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {{ form.submit(class="solve-button") }}
+    </form>
+
+    {% if solution %}
+    <h2>Solution:</h2>
+    <p>{{ solution }}</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}" class="button">Home</a>
+</body>
+</html>
