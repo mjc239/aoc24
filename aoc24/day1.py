@@ -22,7 +22,7 @@ def solve_day1_puzzle_part1(user_input: list[str]):
 
     # Code to compute solution goes here
     first_list, second_list = sorted(first_list), sorted(second_list)
-    diffs = [a - b for a, b in zip(first_list, second_list)]
+    diffs = [abs(a - b) for a, b in zip(first_list, second_list)]
     return sum(diffs)
 
 
@@ -49,4 +49,4 @@ def solve_day1_puzzle(user_input: list[str], part: int):
     elif part == 2:
         return solve_day1_puzzle_part2(user_input)
     else:
-        raise ValueError("Invalid value for part. Part must be 1 or 2.")
+        raise ValueError(f"Invalid value {part} for part. Part must be 1 or 2.")
