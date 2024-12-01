@@ -232,3 +232,55 @@ textarea:focus {
     margin: 5px 0;
     padding: 0;
 }
+
+/* Style the fieldset and legend */
+.radio-group {
+    border: none;
+    margin-bottom: 20px;
+}
+
+.radio-group legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Radio input container styling */
+.radio-group .radio-input {
+    display: block; /* Ensures each radio button appears on its own line */
+    margin-bottom: 10px;
+    cursor: pointer;
+    align-items: center;
+}
+
+/* Hide the default radio button */
+.radio-group .radio-input input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+}
+
+/* Selected state for the custom radio button */
+.radio-group .radio-input input[type="radio"]:checked {
+    border-color: #007bff;
+    background-color: #007bff;
+}
+
+/* Styling the label for the radio button */
+.radio-group .radio-input label {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Radio button hover effect */
+.radio-group .radio-input input[type="radio"]:hover {
+    border-color: #0056b3;
+}

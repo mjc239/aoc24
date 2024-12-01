@@ -1,24 +1,25 @@
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, TextAreaField
+from wtforms import SubmitField, TextAreaField, RadioField
 from wtforms.validators import DataRequired, Length, ValidationError
 
 import re
+
 
 def check_for_malicious_content(form, field):
     user_input = field.data
 
     # SQL injection patterns
     sql_keywords = r"(SELECT|INSERT|DELETE|UPDATE|DROP|UNION|\bOR\b)"
-    
+
     # XSS patterns
     xss_patterns = r"(<script|<img|<iframe|<a|<div|<object|<embed|onload|onerror|onclick|alert|document\.cookie|eval|innerHTML|src)"
-    
+
     # Command injection patterns
     command_injection_patterns = r"(rm|mv|cp|cat|ls|sudo|chmod|ping|wget|curl|uname)"
-    
+
     # Path traversal patterns
     path_traversal_patterns = r"(/etc/passwd|C:\\Windows|/var/www)"
-    
+
     # Obfuscation patterns
     obfuscation_patterns = r"(&#x|%[0-9a-fA-F]{2}|\\x[0-9a-fA-F]{2})"
 
@@ -34,13 +35,19 @@ def check_for_malicious_content(form, field):
     if re.search(obfuscation_patterns, user_input):
         raise ValidationError("Potentially unsafe encoding detected in input.")
 
+
 class SolvePuzzleForm(FlaskForm):
     user_input = TextAreaField(
-        "Enter Puzzle Input", 
+        "Enter Puzzle Input",
         validators=[
             DataRequired(),
             Length(min=1, max=50000),
-            check_for_malicious_content
-        ]
+            check_for_malicious_content,
+        ],
+    )
+    solve_part = RadioField(
+        "Solve Part",
+        choices=[(1, "Part 1"), (2, "Part 2")],
+        validators=[DataRequired()],
     )
     submit = SubmitField("Solve Puzzle")

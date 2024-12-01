@@ -22,7 +22,13 @@
                 {% endfor %}
             </ul>
         {% endif %}
-
+        
+        <!-- Radio buttons for selecting a part -->
+        <fieldset class="radio-group">
+            <legend>Select Part to Solve:</legend>
+            {{ form.solve_part(class="radio-input") }}
+        </fieldset>
+            
         {{ form.submit(class="solve-button") }}
     </form>
 

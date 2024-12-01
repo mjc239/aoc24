@@ -11,7 +11,7 @@ def read_input(day: int):
     return filestring.split("\n")
 
 
-def solve_puzzle(day: int, user_input: str):
+def solve_puzzle(day: int, user_input: str, part: int):
     if not 1 <= day <= 25:
         raise ValueError("day out bounds!")
 
@@ -26,5 +26,6 @@ def solve_puzzle(day: int, user_input: str):
     else:
         user_input = user_input.split("\n")
 
-    solution = solve_func(user_input)
+    id
+    solution = solve_func(user_input, part=part)
     return solution
