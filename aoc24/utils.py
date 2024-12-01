@@ -1,5 +1,6 @@
 from aoc24.day1 import solve_day1_puzzle
 from aoc24.day2 import solve_day2_puzzle
+from datetime import datetime, date
 
 FUNCS = [solve_day1_puzzle, solve_day2_puzzle]
 
@@ -17,6 +18,10 @@ def solve_puzzle(day: int, user_input: str, part: int):
 
     if day > len(FUNCS):
         raise NotImplementedError("Day not yet implemented!")
+
+    now = datetime.now()
+    if now.date() == date(2024, 12, day):
+        return "Can only access solution once day is over!"
 
     solve_func = FUNCS[day - 1]
 
