@@ -20,8 +20,8 @@ def solve_puzzle(day: int, user_input: str, part: int):
         raise NotImplementedError("Day not yet implemented!")
 
     now = datetime.now()
-    if now.date() == date(2024, 12, day):
-        return "Can only access solution once day is over!"
+    if now.date() <= date(2024, 12, day):
+        return f"Can only access solution once day {day} is over!"
 
     solve_func = FUNCS[day - 1]
 
