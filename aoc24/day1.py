@@ -1,10 +1,52 @@
-def solve_day1_puzzle(input_file):
+from collections import Counter
+
+
+def parse_day1_input(user_input: list[str]):
     """
-    Dummy function to solve the puzzle for Day 1. This function reads the input file,
-    processes the puzzle, and returns the solution.
+    Function to parse the user input for Day 1.
     """
-    # Code to read and parse input file goes here
+    processed_file = [
+        [int(x) for x in line.strip("\n").split("   ")] for line in user_input
+    ]
+    first_list, second_list = list(map(list, zip(*processed_file)))
+
+    return first_list, second_list
+
+
+def solve_day1_puzzle_part1(user_input: list[str]):
+    """
+    Function to solve part 1 of the puzzle for Day 1.
+    """
+    # Parse user input
+    first_list, second_list = parse_day1_input(user_input)
 
     # Code to compute solution goes here
+    first_list, second_list = sorted(first_list), sorted(second_list)
+    diffs = [a - b for a, b in zip(first_list, second_list)]
+    return sum(diffs)
 
-    return "Solution for Day 1"
+
+def solve_day1_puzzle_part2(user_input: list[str]):
+    """
+    Function to solve part 2 of the puzzle for Day 1.
+    """
+    # Parse user input
+    first_list, second_list = parse_day1_input(user_input)
+
+    # Code to compute solution goes here
+    list_counter = Counter(second_list)
+    total = sum([num * list_counter[num] for num in first_list])
+
+    return total
+
+
+def solve_day1_puzzle(user_input: list[str], part: int):
+    """
+    Function to solve the puzzle for Day 1.
+    """
+    if part == 1:
+        return solve_day1_puzzle_part1(user_input)
+    elif part == 2:
+        return solve_day1_puzzle_part2(user_input)
+    else:
+        raise ValueError("Invalid value for part. Part must be 1 or 2.")
