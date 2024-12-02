@@ -82,7 +82,7 @@ def parse_day2_input(user_input: list[str]):
     Returns:
         list[int]: The parsed user input
     """
-    return [int(x) for x in user_input.split(" ")]
+    return [[int(x) for x in report.split(" ")] for report in user_input]
 
 
 def solve_day2_puzzle_part1(user_input: list[str]):
