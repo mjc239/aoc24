@@ -36,7 +36,14 @@ def check_for_malicious_content(form, field):
         raise ValidationError("Potentially unsafe encoding detected in input.")
 
 
+def load_test_data(day):
+    with open(f"tests/data/test_day{day}.txt", "r") as f:
+        test_input = f.read()
+    return test_input
+
+
 class SolvePuzzleForm(FlaskForm):
+
     user_input = TextAreaField(
         "Enter Puzzle Input",
         validators=[
@@ -45,9 +52,19 @@ class SolvePuzzleForm(FlaskForm):
             check_for_malicious_content,
         ],
     )
+
     solve_part = RadioField(
         "Solve Part",
         choices=[(1, "Part 1"), (2, "Part 2")],
         validators=[DataRequired()],
     )
+
     submit = SubmitField("Solve Puzzle")
+
+    def __init__(self, day, *args, **kwargs):
+        super(SolvePuzzleForm, self).__init__(*args, **kwargs)
+        self.day = day
+        self.test_input = load_test_data(self.day)
+
+        # Set the default value dynamically
+        self.user_input.data = self.test_input

@@ -33,7 +33,7 @@ def index():
 def puzzle_day(day):
     """Render each day's puzzle page and process the solution."""
 
-    form = SolvePuzzleForm()
+    form = SolvePuzzleForm(day)
     additional_content_exists = None
     result = {"solution": None}
 
