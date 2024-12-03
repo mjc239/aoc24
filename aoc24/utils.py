@@ -24,7 +24,7 @@ def solve_puzzle(day: int, user_input: str, part: int):
 
     now = datetime.now()
     if now.date() <= date(2024, 12, day):
-        return f"Can only access solution once day {day} is over!"
+        return {"solution": f"Can only access solution once day {day} is over!"}
 
     solve_func = FUNCS[day - 1]
 
