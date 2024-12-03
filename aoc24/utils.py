@@ -12,7 +12,7 @@ def read_input(day: int):
     with open(f"../data/day{day}.txt", "r") as f:
         filestring = f.read()
 
-    return filestring.split("\n")
+    return filestring
 
 
 def solve_puzzle(day: int, user_input: str, part: int):
