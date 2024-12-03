@@ -48,3 +48,11 @@ def solve_day3_puzzle(user_input: list[str], part: int) -> int:
         return solve_day3_puzzle_part2(user_input)
     else:
         raise ValueError(f"Invalid value {part} for part. Part must be 1 or 2.")
+
+
+sum(
+    [
+        prod([int(num) for num in pattern.strip("mul")[1:-1].split(",")])
+        for pattern in findall(r"mul\(\d+,\d+\)", user_input)
+    ]
+)

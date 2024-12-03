@@ -1,19 +1,20 @@
 from collections import Counter
 
 
-def parse_day1_input(user_input: list[str]):
+def parse_day1_input(user_input: str):
     """
     Function to parse the user input for Day 1.
     """
     processed_file = [
-        [int(x) for x in line.strip("\n").split("   ")] for line in user_input
+        [int(x) for x in line.strip("\n").split("   ")]
+        for line in user_input.split("\n")
     ]
     first_list, second_list = list(map(list, zip(*processed_file)))
 
     return first_list, second_list
 
 
-def solve_day1_puzzle_part1(user_input: list[str]):
+def solve_day1_puzzle_part1(user_input: str):
     """
     Function to solve part 1 of the puzzle for Day 1.
     """
@@ -26,7 +27,7 @@ def solve_day1_puzzle_part1(user_input: list[str]):
     return sum(diffs)
 
 
-def solve_day1_puzzle_part2(user_input: list[str]):
+def solve_day1_puzzle_part2(user_input: str):
     """
     Function to solve part 2 of the puzzle for Day 1.
     """
@@ -40,7 +41,7 @@ def solve_day1_puzzle_part2(user_input: list[str]):
     return total
 
 
-def solve_day1_puzzle(user_input: list[str], part: int):
+def solve_day1_puzzle(user_input: str, part: int):
     """
     Function to solve the puzzle for Day 1.
     """

@@ -77,8 +77,6 @@ def solve_puzzle(day: int, user_input: str, part: int):
     # If user_input is empty, read from file
     if not user_input:
         user_input = read_input(day)
-    else:
-        user_input = user_input.split("\n")
 
     id
     solution = solve_func(user_input, part=part)
