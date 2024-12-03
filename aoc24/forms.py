@@ -41,7 +41,7 @@ class SolvePuzzleForm(FlaskForm):
         "Enter Puzzle Input",
         validators=[
             DataRequired(),
-            Length(min=1, max=50000),
+            Length(min=1, max=50000, message="Puzzle input too long."),
             check_for_malicious_content,
         ],
     )
