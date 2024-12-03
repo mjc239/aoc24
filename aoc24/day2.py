@@ -74,7 +74,7 @@ def is_report_safe_part2(nums: list[int]) -> bool:
     return True
 
 
-def parse_day2_input(user_input: str):
+def parse_day2_input(user_input: str) -> list[list[int]]:
     """
     Function to parse the user input for Day 2.
     Args:
@@ -85,35 +85,35 @@ def parse_day2_input(user_input: str):
     return [[int(x) for x in report.split(" ")] for report in user_input.split("\n")]
 
 
-def solve_day2_puzzle_part1(user_input: str):
+def solve_day2_puzzle_part1(user_input: str) -> dict[str, int]:
     """
     Function to solve part 1 of the puzzle for Day 2.
     Args:
         user_input (str): The user input.
     Returns:
-        int: The solution to the puzzle (part 1)
+        dict(str, int): The solution to the puzzle (part 1)
     """
     # Parse user input
     parsed_input = parse_day2_input(user_input)
 
-    return sum([is_report_safe_part1(report) for report in parsed_input])
+    return {"solution": sum([is_report_safe_part1(report) for report in parsed_input])}
 
 
-def solve_day2_puzzle_part2(user_input: str):
+def solve_day2_puzzle_part2(user_input: str) -> dict[str, int]:
     """
     Function to solve part 2 of the puzzle for Day 2.
     Args:
         user_input (str): The user input.
     Returns:
-        int: The solution to the puzzle (part 2)
+        dict(str, int): The solution to the puzzle (part 2)
     """
     # Parse user input
     parsed_input = parse_day2_input(user_input)
 
-    return sum([is_report_safe_part2(report) for report in parsed_input])
+    return {"solution": sum([is_report_safe_part2(report) for report in parsed_input])}
 
 
-def solve_day2_puzzle(user_input: str, part: int):
+def solve_day2_puzzle(user_input: str, part: int) -> dict[str, int]:
     """
     Function to solve the puzzle for Day 2.
     Args:

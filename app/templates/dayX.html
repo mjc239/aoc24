@@ -32,10 +32,17 @@
         {{ form.submit(class="solve-button") }}
     </form>
 
-    {% if solution %}
+    {% if result["solution"] %}
     <h2>Solution:</h2>
-    <p>{{ solution }}</p>
+        <p>{{ result["solution"] }}</p>
     {% endif %}
+
+    <section>
+        {% if additional_content_exists %}
+            {% include "day_content/day" + day|string + ".html" %}
+        {% endif %}
+    </section>
+
     <a href="{{ url_for('index') }}" class="button">Home</a>
 </body>
 </html>

@@ -1,7 +1,7 @@
 from re import findall
 
 
-def solve_day3_puzzle_part1(user_input: str) -> int:
+def solve_day3_puzzle_part1(user_input: str) -> dict[str, int]:
     """
     Function to solve part 1 of the puzzle for Day 3.
     Args:
@@ -18,10 +18,10 @@ def solve_day3_puzzle_part1(user_input: str) -> int:
         num1, num2 = [int(x) for x in pattern.strip("mul")[1:-1].split(",")]
         total += num1 * num2
 
-    return total
+    return {"solution": total}
 
 
-def solve_day3_puzzle_part2(user_input: str) -> int:
+def solve_day3_puzzle_part2(user_input: str) -> dict[str, int]:
     """
     Function to solve part 1 of the puzzle for Day 3.
     Args:
@@ -46,10 +46,10 @@ def solve_day3_puzzle_part2(user_input: str) -> int:
         elif pattern == "don't":
             enabled = False
 
-    return total
+    return {"solution": total}
 
 
-def solve_day3_puzzle(user_input: str, part: int) -> int:
+def solve_day3_puzzle(user_input: str, part: int) -> dict[str, int]:
     """
     Function to solve the puzzle for Day 3.
     Args:

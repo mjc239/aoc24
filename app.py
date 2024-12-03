@@ -34,7 +34,8 @@ def puzzle_day(day):
     """Render each day's puzzle page and process the solution."""
 
     form = SolvePuzzleForm()
-    solution = None
+    additional_content_exists = None
+    result = {"solution": None}
 
     if form.validate_on_submit():
         # Retrieve the user input
@@ -43,11 +44,19 @@ def puzzle_day(day):
 
         # Load the correct function based on the day
         try:
-            solution = solve_puzzle(day, user_input, selected_part)
+            result = solve_puzzle(day, user_input, selected_part)
         except NotImplementedError:
-            solution = "Puzzle solution not yet implemented!"
+            result = {"solution": "Puzzle solution not yet implemented!"}
 
-    return render_template(f"dayX.html", form=form, solution=solution, day=day)
+        additional_content_exists = len(result.keys()) > 1
+
+    return render_template(
+        f"dayX.html",
+        form=form,
+        result=result,
+        day=day,
+        additional_content_exists=additional_content_exists,
+    )
 
 
 if __name__ == "__main__":

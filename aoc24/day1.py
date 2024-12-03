@@ -14,7 +14,7 @@ def parse_day1_input(user_input: str):
     return first_list, second_list
 
 
-def solve_day1_puzzle_part1(user_input: str):
+def solve_day1_puzzle_part1(user_input: str) -> dict[str, int]:
     """
     Function to solve part 1 of the puzzle for Day 1.
     """
@@ -24,10 +24,10 @@ def solve_day1_puzzle_part1(user_input: str):
     # Code to compute solution goes here
     first_list, second_list = sorted(first_list), sorted(second_list)
     diffs = [abs(a - b) for a, b in zip(first_list, second_list)]
-    return sum(diffs)
+    return {"solution": sum(diffs)}
 
 
-def solve_day1_puzzle_part2(user_input: str):
+def solve_day1_puzzle_part2(user_input: str) -> dict[str, int]:
     """
     Function to solve part 2 of the puzzle for Day 1.
     """
@@ -36,12 +36,12 @@ def solve_day1_puzzle_part2(user_input: str):
 
     # Code to compute solution goes here
     list_counter = Counter(second_list)
-    total = sum([num * list_counter[num] for num in first_list])
+    total = sum([num * list_counter[num] for num in first_list]) or 0
 
-    return total
+    return {"solution": total}
 
 
-def solve_day1_puzzle(user_input: str, part: int):
+def solve_day1_puzzle(user_input: str, part: int) -> dict[str, int]:
     """
     Function to solve the puzzle for Day 1.
     """
