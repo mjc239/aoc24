@@ -126,7 +126,7 @@ def solve_day12_puzzle_part2(user_input: str) -> dict[str, int]:
     Args:
         user_input (str): The user input.
     Returns:
-         dict[str, int]: The solution to the puzzle (part 2)
+        dict[str, int]: The solution to the puzzle (part 2)
     """
     # Parse user input
     parsed_input = parse_day12_input(user_input)
@@ -147,7 +147,7 @@ def solve_day12_puzzle(user_input: str, part: int) -> dict[str, int]:
         user_input (str): The user input.
         part (int): The part of the puzzle to solve.
     Returns:
-         dict[str, int]: The solution to the puzzle for the given part.
+        dict[str, int]: The solution to the puzzle for the given part.
     """
     if part == 1:
         return solve_day12_puzzle_part1(user_input)
